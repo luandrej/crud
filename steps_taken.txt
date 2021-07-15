@@ -1,0 +1,65 @@
+Install new project:
+    $ symfony new crud
+
+Install ORM:
+    $ composer req orm
+
+Install maker:
+    $ composer req maker
+
+Install twig:
+    $ composer req twig
+
+Create Database:
+    In PHPMyAdmin create Database: crud
+
+Go to .ENV file and update DB parameters.
+
+Run $ php bin/console make:controller to create controller
+    Controller name: MainController
+$ php bin/console make:entity
+ Class name of the entity to create or update (e.g. TinyChef):
+ > crud
+ created: src/Entity/Crud.php
+ created: src/Repository/CrudRepository.php
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+ New property name (press <return> to stop adding fields):
+ > title
+ Field type (enter ? to see all types) [string]:
+ >
+ Field length [255]:
+ >
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > no
+ updated: src/Entity/Crud.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > content
+ Field type (enter ? to see all types) [string]:
+ > string
+ Field length [255]:
+ > 255
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > no
+ updated: src/Entity/Crud.php
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+  Success!
+
+Run $ php bin/console make:migration to create migration file. If you want to change anything, you can do this at
+migrations/Version20210713083949.php
+
+To create the migration table: $ php bin/console doctrine:migrations:migrate
+
+Before creating forms, run: $ composer req form validator
+
+Then run $ php bin/console make:form
+    The name of the form class (e.g. VictoriousKangarooType):
+     > CrudType
+     The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+     > Crud
+
+Go over to https://getbootstrap.com/ and scroll down to jsDelivr. Copy the link for CSS Only
+
+Paste the link to templates/base.html.twig under the title tag
